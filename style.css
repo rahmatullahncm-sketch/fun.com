@@ -1,3 +1,14 @@
+/* পুরো বডি থেকে ডানে-বাম we স্ক্রল বন্ধ করার জন্য */
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* সব এলিমেন্ট যেন স্ক্রিনের বাইরে না যায় */
+* {
+    box-sizing: border-box;
+}
 .logocontainer {
   width: 100%; /* পুরো স্ক্রিন জুড়ে জায়গা নিবে */
 }
@@ -117,7 +128,7 @@ a:hover{
       .navbar {
     flex-direction: row; /* এক লাইনে রাখার জন্য */
     justify-content: space-between; /* দুই প্রান্তে সরিয়ে দিবে */
-    padding: 10px 15px; /* সাইডের ফাঁকা জায়গা কমিয়ে আনা */
+       padding: 10px 15px; /* সাইডের ফাঁকা জায়গা কমিয়ে আনা */
     gap: 5px; /* আইটেমগুলোর মাঝখানে সামান্য গ্যাপ */
   }
 
