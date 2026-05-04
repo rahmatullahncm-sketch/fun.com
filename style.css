@@ -1,0 +1,34 @@
+.logocontainer {
+  width: 100%; /* পুরো স্ক্রিন জুড়ে জায়গা নিবে */
+}
+
+.navbar {
+  display: flex; /* আইটেমগুলোকে এক লাইনে আনবে */
+  justify-content: space-between; /* হোম, লোগো এবং অ্যাবাউটকে সমান দূরে দূরে সরিয়ে দিবে */
+  align-items: center; /* সবগুলোকে লম্বালম্বিভাবে মাঝখানে রাখবে */
+  padding: 10px 50px; /* ডানে-বামে একটু মার্জিন রাখার জন্য, যাতে একদম স্ক্রিনের সাথে লেগে না থাকে */
+}
+
+.navbar img {
+  max-width: 150px; /* লোগোর সাইজ আপনার প্রয়োজন মতো ঠিক করে নিন */
+  height: auto;
+}
+header {
+  
+   background-color: rgb(249, 250, 250);
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.4);
+}
+a.active{
+  background: linear-gradient(45deg, #00c6ff, #0072ff);
+  padding: 8px 15px;
+  border-radius: 5px;
+  color: #fff;
+   transition: 0.3s;
+}
+
+a:hover{
+    /* background: #14ff72cb;
+    border-radius: 2px; */
+      color: #00c6ff;
+  transform: translateY(-2px);
+}
