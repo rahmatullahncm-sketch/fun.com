@@ -51,6 +51,47 @@ a:hover{
   animation: continuousShake 0.8s infinite; /* ০.৮ সেকেন্ড পরপর সবসময় কাঁপবে */
   transition: all 0.3s ease; /* স্মুথ ট্রানজিশনের জন্য */
 }
+ .product-container {
+    width: 90%;
+    max-width: 600px; /* স্লাইডারের চওড়া আপনার পছন্দমতো দিন */
+    margin: 40px auto;
+    text-align: center;
+}
+
+.slider {
+    position: relative;
+    width: 100%;
+    height: 500px; /* ছবির সাইজ যাই হোক, স্লাইডার সবসময় ৫০০ পিক্সেল উঁচু থাকবে */
+    overflow: hidden;
+    border-radius: 15px;
+    background-color: #f4f4f4; /* ছবি লোড হওয়ার আগে হালকা ব্যাকগ্রাউন্ড দেখাবে */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.slide {
+       position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* পুরো ছবি দেখানোর জন্য */
+    opacity: 0; /* শুরুতে সব ছবি লুকানো থাকবে */
+    transition: opacity 0.8s ease-in-out; /* ছবি বদলানোর সময় মসৃণ হবে */
+    z-index: 1;
+}
+
+.slide.active {
+     
+        opacity: 1 !important; /* জাভাস্ক্রিপ্ট যখন এই ক্লাস দিবে তখন ছবি দেখা যাবে */
+    z-index: 2;
+}
+
+/* মোবাইলের জন্য ছবি ছোট করা */
+@media (max-width: 600px) {
+    .slider {
+        height: 350px;
+    }
+}
 @media (max-width: 768px) {
   .navbar {
     flex-direction: column; /* আইটেমগুলোকে লম্বালম্বিভাবে একটার নিচে একটা সাজাবে */
@@ -62,4 +103,46 @@ a:hover{
     order: -1; /* লোগোটিকে সবার উপরে দেখানোর জন্য */
     max-width: 120px; /* মোবাইলে লোগো কিছুটা ছোট করার জন্য */
   }
+}
+@media (max-width: 768px) {
+    /* নেভবারকে উপর-নিচে এবং মাঝখানে আনা */
+    .navbar {
+        flex-direction: column;
+        gap: 15px;
+        padding: 20px 10px;
+        text-align: center;
+    }
+
+    .navbar img {
+        order: -1; /* লোগোটিকে সবার উপরে দেখাবে */
+        max-width: 80px; /* মোবাইলে লোগো কিছুটা ছোট হবে */
+    }
+
+    /* মেইন কন্টেইনার এবং স্লাইডার অ্যাডজাস্টমেন্ট */
+    .product-container {
+        width: 95%; /* মোবাইলে স্ক্রিনের দুই পাশে খুব সামান্য ফাঁকা থাকবে */
+        margin: 20px auto;
+    }
+
+    .slider {
+        height: 350px; /* মোবাইলে স্লাইডারের উচ্চতা কমিয়ে আনা হলো */
+        border-radius: 10px;
+    }
+
+    .product-details h2 {
+        font-size: 20px; /* হেডিং কিছুটা ছোট করা */
+        margin-top: 15px;
+    }
+
+    .product-details p {
+        font-size: 14px;
+        padding: 0 10px;
+    }
+}
+
+/* ছোট মোবাইলের জন্য (যেমন iPhone SE) */
+@media (max-width: 480px) {
+    .slider {
+        height: 280px; /* আরও ছোট স্ক্রিনে উচ্চতা আরও কমানো */
+    }
 }
