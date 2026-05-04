@@ -1,18 +1,14 @@
 let slideIndex = 0;
+let slideInterval; // স্লাইড কন্ট্রোল করার ভেরিয়েবল
+
+const slides = document.querySelectorAll(".slide");
+const sliderContainer = document.querySelector(".slider");
 
 function showSlides() {
-    const slides = document.querySelectorAll(".slide");
-    
-    // চেক করার জন্য: যদি স্লাইড খুঁজে না পায় তবে কনসোলে জানাবে
-    if (slides.length === 0) {
-        console.log("No slides found! Check your HTML class names.");
-        return;
-    }
-
-    // সব স্লাইড থেকে active ক্লাস সরানো
+    // সব স্লাইড থেকে active ক্লাস রিমুভ করা
     slides.forEach(slide => {
         slide.classList.remove("active");
-        slide.style.opacity = "0"; // নিশ্চিত করতে অপাসিটি ০ করা
+        slide.style.opacity = "0";
     });
 
     slideIndex++;
@@ -21,14 +17,36 @@ function showSlides() {
     }
 
     // বর্তমান স্লাইড দেখানো
-    slides[slideIndex - 1].classList.add("active");
-    slides[slideIndex - 1].style.opacity = "1"; // অপাসিটি ১ করা
-
-    console.log("Showing slide index: " + slideIndex);
-
-    // ২ সেকেন্ড পর পর চলবে
-    setTimeout(showSlides, 2000);
+    if (slides[slideIndex - 1]) {
+        slides[slideIndex - 1].classList.add("active");
+        slides[slideIndex - 1].style.opacity = "1";
+    }
 }
 
-// পেজ লোড হওয়া শেষ হলে স্লাইডার শুরু হবে
-window.onload = showSlides;
+// ২ সেকেন্ড পরপর স্লাইড চলার ফাংশন
+function startSlider() {
+    slideInterval = setInterval(showSlides, 2000); 
+}
+
+// স্লাইড বন্ধ করার ফাংশন
+function stopSlider() {
+    clearInterval(slideInterval);
+}
+
+// স্লাইডার কন্ট্রোল শুরু করা
+window.onload = () => {
+    showSlides(); // লোড হওয়ার সাথে সাথে প্রথম ইমেজ দেখাবে
+    startSlider(); // স্লাইডার চালু হবে
+
+    // ১. মাউস নিলে স্লাইড বন্ধ হবে
+    sliderContainer.addEventListener("mouseenter", () => {
+        stopSlider();
+        console.log("Slider Paused");
+    });
+
+    // ২. মাউস সরিয়ে নিলে আবার আগের মতো চলতে শুরু করবে
+    sliderContainer.addEventListener("mouseleave", () => {
+        startSlider();
+        console.log("Slider Resumed");
+    });
+};

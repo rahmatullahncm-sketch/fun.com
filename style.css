@@ -150,11 +150,31 @@ a:hover{
         margin: 20px auto;
     }
 
-    .slider {
+    /* .slider {
         height: 350px; /* মোবাইলে স্লাইডারের উচ্চতা কমিয়ে আনা হলো */
-        border-radius: 10px;
-    }
+        /* border-radius: 10px;} */
+     */
+.slider {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    overflow: hidden; /* জুম হওয়ার সময় ছবি যেন বাইরে না যায় */
+     cursor: zoom-in !important;  /* মাউস নিলে জুম আইকন দেখাবে */
+}
 
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    opacity: 0;
+    transition: opacity 1s ease, transform 0.5s ease; /* জুম ট্রানজিশন যোগ করা হয়েছে */
+}
+
+/* মাউস নিলে জুম হবে */
+.slider:hover .slide.active {
+    transform: scale(1.2); /* ১.২ গুণ বড় হবে, আপনি চাইলে ১.৫ দিতে পারেন */
+}
     .product-details h2 {
         font-size: 20px; /* হেডিং কিছুটা ছোট করা */
         margin-top: 15px;
