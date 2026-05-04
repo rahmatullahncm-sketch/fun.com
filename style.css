@@ -85,7 +85,15 @@ a:hover{
         opacity: 1 !important; /* জাভাস্ক্রিপ্ট যখন এই ক্লাস দিবে তখন ছবি দেখা যাবে */
     z-index: 2;
 }
-
+ .product-details{
+        font-size: 14px;
+        padding: 0 10px;
+        margin-top: 20px;
+    }
+    .product-details a{
+      font-size: large;
+      background-color: red;
+    }
 /* মোবাইলের জন্য ছবি ছোট করা */
 @media (max-width: 600px) {
     .slider {
@@ -133,10 +141,14 @@ a:hover{
         font-size: 20px; /* হেডিং কিছুটা ছোট করা */
         margin-top: 15px;
     }
-
+    .product-details a {
+        font-size: 20px; /* হেডিং কিছুটা ছোট করা */
+        margin-top: 15px;
+    }
     .product-details p {
         font-size: 14px;
         padding: 0 10px;
+       
     }
 }
 
