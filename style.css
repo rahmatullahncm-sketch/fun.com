@@ -114,18 +114,25 @@ a:hover{
 }
 @media (max-width: 768px) {
     /* নেভবারকে উপর-নিচে এবং মাঝখানে আনা */
-    .navbar {
-        flex-direction: column;
-        gap: 15px;
-        padding: 20px 10px;
-        text-align: center;
-    }
+      .navbar {
+    flex-direction: row; /* এক লাইনে রাখার জন্য */
+    justify-content: space-between; /* দুই প্রান্তে সরিয়ে দিবে */
+    padding: 10px 15px; /* সাইডের ফাঁকা জায়গা কমিয়ে আনা */
+    gap: 5px; /* আইটেমগুলোর মাঝখানে সামান্য গ্যাপ */
+  }
 
-    .navbar img {
-        order: -1; /* লোগোটিকে সবার উপরে দেখাবে */
-        max-width: 80px; /* মোবাইলে লোগো কিছুটা ছোট হবে */
-    }
+  /* মোবাইলে বাটনগুলো ছোট এবং সুন্দর দেখানোর জন্য */
+  .navbar a.active {
+    padding: 6px 10px; /* বাটনের ভেতরের জায়গা কমানো */
+    font-size: 12px; /* লেখার সাইজ ছোট করা */
+    white-space: nowrap; /* লেখা যেন ভেঙে নিচে না যায় */
+  }
 
+  .navbar img {
+    max-width: 60px; /* লোগো ছোট করা যাতে বাটনগুলো জায়গা পায় */
+    order: 0; /* লোগো মাঝখানেই থাকবে */
+  }
+}
     /* মেইন কন্টেইনার এবং স্লাইডার অ্যাডজাস্টমেন্ট */
     .product-container {
         width: 95%; /* মোবাইলে স্ক্রিনের দুই পাশে খুব সামান্য ফাঁকা থাকবে */
